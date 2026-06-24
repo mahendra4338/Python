@@ -1,0 +1,53 @@
+G.Mahendra Reddy
+
+Question 1: Count Valid Ages
+CODE:
+
+c = 0
+age = 0
+while age != -1:
+    age = int(input("Enter Age: "))
+    if age < 1 or age > 120:
+        continue
+    c += 1
+print("Count:", c)
+
+
+
+Question 2: Sum Multiples of 5
+CODE:
+
+num=1
+sum=0
+while num!=0:
+    num=int(input("Enter Number:"))
+    if num%5!=0:
+        continue
+    sum=sum+num 
+print("Sum:",sum) 
+
+
+
+Question 3: Count Uppercase Letters
+CODE:     
+
+text="PyTHon ProGRAM"
+c=0
+for i in text:
+    if 'A'<=i<='Z':
+        c+=1
+    else:
+        continue    
+print("Uppercase letters count:",c)
+
+
+Question 4: Total Sales Amount
+CODE:
+
+sales=[500,0,1200,0,700]
+sum=0
+for items in sales:
+    if items<=0:
+        continue
+    sum+=items
+print(f"Total Sales Amount:{sum}")    
