@@ -1,0 +1,69 @@
+def display_student(student_id,name):
+    print("\nStudent Details")
+    print("Student ID:",student_id)
+    print("Student Name:",name)
+
+def calculate_total(mark1,mark2,mark3,mark4,mark5):
+    total=mark1+mark2+mark3+mark4+mark5
+    print("\nTotal Marks:",total)
+
+def calculate_percentage(mark1,mark2,mark3,mark4,mark5):
+    percentage=(mark1+mark2+mark3+mark4+mark5)/5
+    print("\nPercentage:",percentage,"%")
+
+def find_grade(percentage):
+    if percentage>=90:
+        print("\nGrade: A")
+    elif percentage>=75:
+        print("\nGrade: B")
+    elif percentage>=60:
+        print("\nGrade: C")
+    elif percentage>=40:
+        print("\nGrade: D")
+    else:
+        print("\nGrade: Fail")
+
+def highest_mark(mark1,mark2,mark3,mark4,mark5):
+    marks=[mark1,mark2,mark3,mark4,mark5]
+    high=marks[0]
+    for i in marks:
+        if i>high:
+            high=i
+    print("\nHighest Mark:",high)
+
+def lowest_mark(mark1,mark2,mark3,mark4,mark5):
+    marks=[mark1,mark2,mark3,mark4,mark5]
+    low=marks[0]
+    for i in marks:
+        if i<low:
+            low=i
+    print("\nLowest Mark:",low)
+
+def pass_fail(mark1,mark2,mark3,mark4,mark5):
+    marks=[mark1,mark2,mark3,mark4,mark5]
+    result="Pass"
+    for i in marks:
+        if i<35:
+            result="Fail"
+            break
+    print("\nResult:",result)
+
+student_id=input("Enter Student ID: ")
+name=input("Enter Student Name: ")
+
+mark1=int(input("Enter Subject 1 Marks: "))
+mark2=int(input("Enter Subject 2 Marks: "))
+mark3=int(input("Enter Subject 3 Marks: "))
+mark4=int(input("Enter Subject 4 Marks: "))
+mark5=int(input("Enter Subject 5 Marks: "))
+
+display_student(student_id,name)
+calculate_total(mark1,mark2,mark3,mark4,mark5)
+calculate_percentage(mark1,mark2,mark3,mark4,mark5)
+
+percentage=(mark1+mark2+mark3+mark4+mark5)/5
+find_grade(percentage)
+
+highest_mark(mark1,mark2,mark3,mark4,mark5)
+lowest_mark(mark1,mark2,mark3,mark4,mark5)
+pass_fail(mark1,mark2,mark3,mark4,mark5)
