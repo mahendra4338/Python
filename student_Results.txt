@@ -1,0 +1,94 @@
+def process_student_result(student_id,student_name,subjects,subject_name,subject_marks,attendance_percentage,assignment_score,extracurricular_points):
+    total_marks=0
+
+    for i in subject_marks:
+        total_marks+=i
+
+    average=(total_marks/subjects)+(assignment_score*0.10)+extracurricular_points
+
+    if attendance_percentage<75:
+        average-=5
+        attendance_status="Low Attendance"
+    else:
+        attendance_status="Good Attendance"
+
+    if average>=90:
+        grade="A+"
+    elif average>=80:
+        grade="A"
+    elif average>=70:
+        grade="B"
+    elif average>=60:
+        grade="C"
+    elif average>=50:
+        grade="D"
+    else:
+        grade="Fail"
+
+    failed_subjects=[]
+
+    for i in range(subjects):
+        if subject_marks[i]<35:
+            failed_subjects+=[subject_name[i]]
+
+    failed_subjects_count=0
+
+    for i in failed_subjects:
+        failed_subjects_count+=1
+
+    if failed_subjects_count==0:
+        result="Pass"
+    else:
+        result="Fail"
+
+    return total_marks,average,grade,attendance_status,failed_subjects,result
+
+
+subject_name=[]
+subject_marks=[]
+
+student_id=int(input("Enter Student ID: "))
+student_name=input("Enter Student Name: ")
+
+subjects=int(input("Enter No.Of Subjects: "))
+while subjects<=0:
+    print("Number of subjects must be greater than 0.")
+    subjects=int(input("Enter No.Of Subjects: "))
+
+for i in range(subjects):
+    name=input(f"Enter Subject{i+1} Name: ")
+    subject_name+=[name]
+
+for i in range(subjects):
+    mark=int(input(f"Enter {subject_name[i]} Marks: "))
+    while mark<0 or mark>100:
+        print("Marks must be between 0 and 100.")
+        mark=int(input(f"Enter {subject_name[i]} Marks: "))
+    subject_marks+=[mark]
+
+attendance_percentage=int(input("Attendance Percentage: "))
+while attendance_percentage<0 or attendance_percentage>100:
+    print("Attendance must be between 0 and 100.")
+    attendance_percentage=int(input("Attendance Percentage: "))
+
+assignment_score=int(input("Assignment Score: "))
+while assignment_score<0:
+    print("Assignment score cannot be negative.")
+    assignment_score=int(input("Assignment Score: "))
+
+extracurricular_points=int(input("Extracurricular Points: "))
+while extracurricular_points<0:
+    print("Extracurricular points cannot be negative.")
+    extracurricular_points=int(input("Extracurricular Points: "))
+
+total_marks,average,grade,attendance_status,failed_subjects,result=process_student_result(student_id,student_name,subjects,subject_name,subject_marks,attendance_percentage,assignment_score,extracurricular_points)
+
+print("\n------STUDENT RESULT------")
+print("Student ID:",student_id)
+print("Student Name:",student_name)
+print("Total Marks:",total_marks)
+print(f"Average:{average:.1f}")
+print("Grade:",grade)
+print("Attendance Status:",attendance_status)
+print("Failed Subjects:",failed_subjects)
+print("Result:",result)
