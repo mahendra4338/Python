@@ -1,0 +1,18 @@
+# Global variable
+name = "Global Variable"
+
+def display_scope():
+    # Local variable
+    name = "Local Variable"
+
+    print("Inside Function")
+    print("Local Variable :", name)
+
+    # Accessing the global variable
+    print("Global Variable:", globals()['name'])
+
+# Function call
+display_scope()
+
+print("\nOutside Function")
+print("Global Variable:", name)
